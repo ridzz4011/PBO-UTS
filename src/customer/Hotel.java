@@ -1,6 +1,7 @@
 package utsProject.src.customer;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 import utsProject.src.HotelInterface;
 
 public class Hotel implements HotelInterface {
@@ -37,6 +38,46 @@ public class Hotel implements HotelInterface {
             System.out.println("Harga Kamar: " + kamar.hargaKamar);
             System.out.println("Status: " + status);
             System.out.println("===================================");
+        }
+    }
+
+    public void detailPesanan(ArrayList<Hotel> Kamar) {
+        System.out.println("\n------- Struk Pembayaran -------");
+        for (Hotel kamar : Kamar) {
+            System.out.println("Nomor Kamar: " + kamar.nomerKamar);
+            System.out.println("Atas Nama: " + kamar.getNama());
+            System.out.println("Tipe Kamar: " + kamar.tipeKamar);
+            System.out.println("Harga Kamar: " + kamar.hargaKamar);
+            System.out.println("===================================");
+        }
+    }
+
+    public void bookingKamar(ArrayList<Hotel> Kamar) {
+        Scanner input2 = new Scanner(System.in);
+
+        System.out.print("Masukan ruangan yang mau dibook: ");
+        int nomorkamar = input2.nextInt();
+
+        for (Hotel kamar : Kamar) {
+            if (kamar.nomerKamar == nomorkamar) {
+                if (!kamar.penuh) {
+                    System.out.print("\nMasukan nama anda: ");
+                    input2.nextLine();
+                    String namaPelanggan = input2.nextLine();
+
+                    kamar.namaCustomer = namaPelanggan;
+                    kamar.penuh = true;
+
+                    System.out.println("Kamar nomor " + nomorkamar);
+                    System.out.println(" berhasil di book atas nama " + namaPelanggan);
+                } else {
+                    System.out.println("Kamar nomor " + nomorkamar);
+                    System.out.println(" sudah penuh. Silahkan pilih kembali");
+                }
+                break;
+            } else {
+                System.out.println("Kamar nomor " + nomorkamar + " tidak ditemukan!");
+            }
         }
     }
 }

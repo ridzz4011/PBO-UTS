@@ -1,9 +1,12 @@
 package utsProject;
 
+import utsProject.src.customer.menuCustomer;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        menuCustomer menu1 = new menuCustomer();
+
         try (Scanner input = new Scanner(System.in)) {
             String userPelanggan = "Garid";
             String passPelanggan = "tes123";
@@ -21,6 +24,7 @@ public class Main {
 
             if (username.equals(userPelanggan) && password.equals(passPelanggan)) {
                 System.out.println("Berhasil login!");
+                menu1.menu();
             }
 
             else if (username.equals(userAdmin) && password.equals(passAdmin)) {
