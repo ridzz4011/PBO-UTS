@@ -22,6 +22,7 @@ public class Hotel implements HotelInterface {
         return namaCustomer;
     }
 
+    @Override
     public void listKamar(ArrayList<Hotel> Kamar) {
         System.out.println("List Kamar: ");
         System.out.println("===================================");
@@ -68,11 +69,9 @@ public class Hotel implements HotelInterface {
                     kamar.namaCustomer = namaPelanggan;
                     kamar.penuh = true;
 
-                    System.out.println("Kamar nomor " + nomorkamar);
-                    System.out.println(" berhasil di book atas nama " + namaPelanggan);
+                    System.out.println("Kamar nomor " + nomorkamar + " berhasil di book atas nama " + namaPelanggan);
                 } else {
-                    System.out.println("Kamar nomor " + nomorkamar);
-                    System.out.println(" sudah penuh. Silahkan pilih kembali");
+                    System.out.println("Kamar nomor " + nomorkamar + " sudah penuh. Silahkan pilih kembali!");
                 }
                 break;
             } else {
